@@ -1,0 +1,11 @@
+a:hover {
+    text-decoration: none
+}
+.contacts .contacts__social a {
+    text-decoration: none
+}
+.contacts .contacts__social a:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}

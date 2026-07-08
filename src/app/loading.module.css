@@ -1,0 +1,50 @@
+.wrap {
+  padding-block: clamp(4rem, 20vh, 10rem);
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.label {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.bars {
+  display: grid;
+  gap: 0.6rem;
+  width: min(28rem, 100%);
+}
+
+.bars span {
+  height: 0.9rem;
+  background: var(--line);
+  border-radius: var(--radius);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.bars span:nth-child(2) {
+  width: 80%;
+  animation-delay: 150ms;
+}
+
+.bars span:nth-child(3) {
+  width: 55%;
+  animation-delay: 300ms;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bars span {
+    animation: none;
+  }
+}

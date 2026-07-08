@@ -1,0 +1,53 @@
+.wrap {
+  padding-block: clamp(4rem, 18vh, 10rem);
+  max-width: 720px;
+}
+
+.title {
+  font-size: var(--text-hero);
+  text-transform: uppercase;
+  margin: 0.5rem 0 2rem;
+}
+
+.report {
+  display: grid;
+  gap: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.report dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.report dd {
+  margin: 0.2rem 0 0;
+}
+
+.warn {
+  font-family: var(--font-mono);
+  color: var(--warn);
+}
+
+.retry {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.retry:hover {
+  background: var(--ink);
+  color: var(--bg);
+}

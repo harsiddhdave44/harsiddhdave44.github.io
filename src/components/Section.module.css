@@ -1,0 +1,13 @@
+.section {
+  padding-block: calc(var(--section-gap) / 2);
+  border-top: 1px solid var(--line);
+}
+
+.head {
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+}
+
+.title {
+  font-size: var(--text-2xl);
+  margin-top: 0.5rem;
+}

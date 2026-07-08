@@ -1,0 +1,34 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.toggle:hover {
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+/* Fixed width so cycling labels don't shift the nav. */
+.label {
+  min-inline-size: 3.6em;
+  text-align: left;
+}
+
+@media (max-width: 540px) {
+  .label {
+    display: none;
+  }
+  .toggle {
+    padding: 0.35rem 0.55rem;
+  }
+}

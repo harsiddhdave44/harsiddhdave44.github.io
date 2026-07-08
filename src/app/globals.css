@@ -1,0 +1,241 @@
+/* ── Design tokens ─────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  /* color */
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #101816;
+  --muted: #57625e;
+  --line: #d9e0dd;
+  --accent: #0b6b4f;
+  --accent-ink: #095c44;
+  --warn: #b45309;
+
+  /* type */
+  --font-display: var(--font-display-face), "Martian Mono", ui-monospace, monospace;
+  --font-body: var(--font-mono-face), "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: var(--font-mono-face), "JetBrains Mono", ui-monospace, monospace;
+
+  /* scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.35rem, 1.1rem + 1vw, 1.75rem);
+  --text-2xl: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+  --text-hero: clamp(2.4rem, 1.4rem + 4.5vw, 4.5rem);
+
+  /* layout */
+  --shell: 1100px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-gap: clamp(4.5rem, 10vh, 8rem);
+  --radius: 2px;
+}
+
+/* ── Theme system ──────────────────────────────────────────────────
+   Three states: light (default tokens above), dark, system.
+   The toggle sets data-theme="light" | "dark" on <html>; no attribute
+   means "system" and the media query decides. Token blocks are
+   duplicated because CSS can't share a block between a media query
+   and an attribute selector. Keep both copies identical. */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1412;
+  --surface: #121b18;
+  --ink: #edf2ef;
+  --muted: #93a39d;
+  --line: #223029;
+  --accent: #2ebd8b;
+  --accent-ink: #5cd9ab;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0d1412;
+    --surface: #121b18;
+    --ink: #edf2ef;
+    --muted: #93a39d;
+    --line: #223029;
+    --accent: #2ebd8b;
+    --accent-ink: #5cd9ab;
+  }
+}
+
+/* One committed color moment: token inversion for the contact panel.
+   On the light theme it's an ink panel; on the dark theme it flips to
+   a paper panel, so the inverted moment survives both themes.
+   Components inside adapt automatically because everything reads tokens. */
+.tone-ink {
+  --bg: #0e1513;
+  --surface: #15201c;
+  --ink: #f2f5f3;
+  --muted: #9fafa9;
+  --line: #263531;
+  --accent: #2ebd8b;
+  --accent-ink: #5cd9ab;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .tone-ink {
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #101816;
+  --muted: #57625e;
+  --line: #d9e0dd;
+  --accent: #0b6b4f;
+  --accent-ink: #095c44;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tone-ink {
+    --bg: #f5f7f6;
+    --surface: #ffffff;
+    --ink: #101816;
+    --muted: #57625e;
+    --line: #d9e0dd;
+    --accent: #0b6b4f;
+    --accent-ink: #095c44;
+  }
+}
+
+/* ── Reset & base ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+/* Mono body text runs wide per character; cap lines a little shorter. */
+p {
+  max-width: 62ch;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 160ms ease, color 160ms ease;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Accessibility ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Shared utilities ──────────────────────────────────────────── */
+.shell {
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Mono route-path eyebrow: the site's structural label device. */
+.route {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent-ink);
+  letter-spacing: 0.02em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Scroll reveal (driven by the <Reveal> component). */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

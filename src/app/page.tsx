@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { StatusChip } from "@/components/StatusChip";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CopyEmailButton } from "@/components/CopyEmailButton";
+import { TypedText } from "@/components/TypedText";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -22,7 +23,9 @@ export default function HomePage() {
             <span className={styles.heroSurname}>{site.name.split(" ")[1]}</span>
           </h1>
           <p className={styles.heroRole}>{site.role}</p>
-          <p className={styles.heroTagline}>{site.tagline}</p>
+          <p className={styles.heroTagline}>
+            <TypedText text={site.tagline} />
+          </p>
           <dl className={styles.heroMeta}>
             {site.hero.meta.map((m) => (
               <div key={m.label} className={styles.heroMetaItem}>

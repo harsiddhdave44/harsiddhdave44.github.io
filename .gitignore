@@ -8,3 +8,8 @@ build/
 next-env.d.ts
 .DS_Store
 .remember/
+docs
+docs/*
+docs
+docs\superpowers
+docs\superpowers\specs

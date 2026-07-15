@@ -12,7 +12,7 @@ export const site = {
     "I build and operate production-grade cloud infrastructure. I care about what happens at runtime, not just what's in the config.",
   email: "harsiddh.dave@thesunflowerlab.com",
   // Set to your deployed URL before going live (used for canonical/OG metadata).
-  url: "https://harsiddh.dev",
+  url: "https://harsiddhdave44.github.io/harsiddh",
   status: {
     label: "Operational · open to new roles",
     compactLabel: "open to roles",

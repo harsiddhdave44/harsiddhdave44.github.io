@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ui } from "@/content/ui";
 import styles from "./CopyEmailButton.module.css";
 
 type CopyState = "idle" | "copied" | "error";
@@ -33,10 +34,10 @@ export function CopyEmailButton({ email }: { email: string }) {
 
   const label =
     state === "copied"
-      ? "Copied to clipboard"
+      ? ui.copyEmail.copied
       : state === "error"
-        ? "Copy failed, use the link"
-        : "Copy email address";
+        ? ui.copyEmail.error
+        : ui.copyEmail.idle;
 
   return (
     <button
@@ -47,7 +48,7 @@ export function CopyEmailButton({ email }: { email: string }) {
     >
       {label}
       <span aria-live="polite" className={styles.srOnly}>
-        {state === "copied" ? "Email address copied" : ""}
+        {state === "copied" ? ui.copyEmail.srCopied : ""}
       </span>
     </button>
   );

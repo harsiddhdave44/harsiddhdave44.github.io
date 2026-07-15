@@ -10,9 +10,9 @@ export const site = {
   // The one-line pitch used in the hero and metadata.
   tagline:
     "I build and operate production-grade cloud infrastructure. I care about what happens at runtime, not just what's in the config.",
-  email: "harsiddh.dave@thesunflowerlab.com",
+  email: "harsiddhdave44@outlook.com",
   // Set to your deployed URL before going live (used for canonical/OG metadata).
-  url: "https://harsiddhdave44.github.io/harsiddh",
+  url: "https://harsiddhdave44.github.io/",
   status: {
     label: "Operational · open to new roles",
     compactLabel: "open to roles",

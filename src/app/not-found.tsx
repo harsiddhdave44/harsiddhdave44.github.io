@@ -1,30 +1,31 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ui } from "@/content/ui";
 import styles from "./not-found.module.css";
 
 export const metadata: Metadata = {
-  title: "404: route not found",
+  title: ui.notFound.metaTitle,
 };
 
 export default function NotFound() {
   return (
     <div className={`shell ${styles.wrap}`}>
-      <p className="route">/incident/404</p>
-      <h1 className={styles.title}>Route not found</h1>
+      <p className="route">{ui.notFound.route}</p>
+      <h1 className={styles.title}>{ui.notFound.title}</h1>
       <dl className={styles.report}>
         <div>
           <dt>status</dt>
-          <dd className={styles.warn}>◌ 404: no matching entry in the routing table</dd>
+          <dd className={styles.warn}>{ui.notFound.statusLabel}</dd>
         </div>
         <div>
           <dt>impact</dt>
-          <dd>This page only. The rest of the site is operational.</dd>
+          <dd>{ui.notFound.impact}</dd>
         </div>
         <div>
           <dt>remediation</dt>
           <dd>
-            <Link href="/">Return to /</Link> or jump straight to{" "}
-            <Link href="/#work">/work</Link>.
+            <Link href="/">Return to {ui.notFound.homeLinkLabel}</Link> or jump straight to{" "}
+            <Link href="/#work">{ui.notFound.workLinkLabel}</Link>.
           </dd>
         </div>
       </dl>

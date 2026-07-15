@@ -1,5 +1,6 @@
 "use client";
 
+import { ui } from "@/content/ui";
 import styles from "./not-found.module.css";
 
 export default function ErrorPage({
@@ -11,12 +12,12 @@ export default function ErrorPage({
 }) {
   return (
     <div className={`shell ${styles.wrap}`}>
-      <p className="route">/incident/500</p>
-      <h1 className={styles.title}>Something failed</h1>
+      <p className="route">{ui.error.route}</p>
+      <h1 className={styles.title}>{ui.error.title}</h1>
       <dl className={styles.report}>
         <div>
           <dt>status</dt>
-          <dd className={styles.warn}>● unexpected error while rendering this page</dd>
+          <dd className={styles.warn}>{ui.error.statusLabel}</dd>
         </div>
         {error.digest && (
           <div>
@@ -28,9 +29,9 @@ export default function ErrorPage({
           <dt>remediation</dt>
           <dd>
             <button className={styles.retry} type="button" onClick={reset}>
-              Retry the request
+              {ui.error.retryLabel}
             </button>{" "}
-            or reload the page if it happens again.
+            {ui.error.retrySuffix}
           </dd>
         </div>
       </dl>

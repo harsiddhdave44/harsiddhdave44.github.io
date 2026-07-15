@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { projects } from "@/content/projects";
+import { ui } from "@/content/ui";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { StatusChip } from "@/components/StatusChip";
@@ -53,22 +54,15 @@ export default function HomePage() {
       </Section>
 
       {/* ── Selected work ────────────────────────────────────── */}
-      <Section id="work" route="/work" title="Selected work, written as runbooks">
+      <Section id="work" route="/work" title={ui.home.workTitle}>
         {projects.length === 0 ? (
           <div className={styles.empty}>
-            <p className="mono">/work: no entries yet</p>
-            <p>
-              Case studies are being written up. Email me and I&apos;ll walk you
-              through the work directly.
-            </p>
+            <p className="mono">{ui.home.workEmptyLabel}</p>
+            <p>{ui.home.workEmptyBody}</p>
           </div>
         ) : (
           <>
-            <p className={styles.workIntro}>
-              I document projects the way I&apos;d document production systems:
-              what broke or needed to change, what I decided and why, and what
-              the system looked like afterwards.
-            </p>
+            <p className={styles.workIntro}>{ui.home.workIntro}</p>
             <ul className={styles.workGrid}>
               {projects.map((project, i) => (
                 <Reveal as="li" key={project.slug} delay={i * 90}>
@@ -84,7 +78,7 @@ export default function HomePage() {
       <Section
         id="capabilities"
         route="/capabilities"
-        title="What I operate"
+        title={ui.home.capabilitiesTitle}
       >
         {/* Manifest rows, not cards: an inventory of what's under management. */}
         <dl className={styles.manifest}>

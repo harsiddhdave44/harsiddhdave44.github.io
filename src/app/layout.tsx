@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Martian_Mono, JetBrains_Mono } from "next/font/google";
 import { site } from "@/content/site";
+import { ui } from "@/content/ui";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
@@ -70,7 +71,7 @@ export default function RootLayout({
           }}
         />
         <a className="skip-link" href="#main">
-          Skip to content
+          {ui.skipLinkLabel}
         </a>
         <Nav />
         <main id="main">{children}</main>

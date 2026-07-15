@@ -1,4 +1,5 @@
 import { site } from "@/content/site";
+import { ui } from "@/content/ui";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -10,9 +11,7 @@ export function Footer() {
           {" · "}
           {site.role}
         </p>
-        <p className={`mono ${styles.uptime}`}>
-          built with Next.js · fully static · no trackers
-        </p>
+        <p className={`mono ${styles.uptime}`}>{ui.footer.tagline}</p>
         {site.links.length > 0 && (
           <ul className={styles.links}>
             {site.links.map((l) => (

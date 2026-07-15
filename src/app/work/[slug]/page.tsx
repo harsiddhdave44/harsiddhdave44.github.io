@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/content/projects";
 import { site } from "@/content/site";
+import { ui } from "@/content/ui";
 import { Reveal } from "@/components/Reveal";
 import styles from "./page.module.css";
 
@@ -32,12 +33,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const sections = [
-  { key: "problem", route: "/problem", title: "Problem" },
-  { key: "targetUser", route: "/target-user", title: "Target user" },
-  { key: "role", route: "/my-role", title: "My role" },
-] as const;
-
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   const project = getProject(slug);
@@ -58,7 +53,7 @@ export default async function ProjectPage({ params }: Props) {
               className={styles.statusValue}
               data-status={project.status}
             >
-              {project.status === "resolved" ? "● resolved" : "◐ in progress"}
+              {project.status === "resolved" ? ui.projectPage.resolvedStatus : ui.projectPage.inProgressStatus}
             </dd>
           </div>
           {project.meta.map((m) => (
@@ -70,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
         </dl>
       </header>
 
-      {sections.map((s) => (
+      {ui.projectPage.sections.map((s) => (
         <Reveal as="section" key={s.key} className={styles.section}>
           <p className="route">{s.route}</p>
           <h2 className={styles.sectionTitle}>{s.title}</h2>
@@ -79,8 +74,8 @@ export default async function ProjectPage({ params }: Props) {
       ))}
 
       <Reveal as="section" className={styles.section}>
-        <p className="route">/process</p>
-        <h2 className={styles.sectionTitle}>Process</h2>
+        <p className="route">{ui.projectPage.process.route}</p>
+        <h2 className={styles.sectionTitle}>{ui.projectPage.process.title}</h2>
         <ol className={styles.process}>
           {project.process.map((step, i) => (
             <li key={step}>
@@ -94,8 +89,8 @@ export default async function ProjectPage({ params }: Props) {
       </Reveal>
 
       <Reveal as="section" className={styles.section}>
-        <p className="route">/key-decisions</p>
-        <h2 className={styles.sectionTitle}>Key decisions</h2>
+        <p className="route">{ui.projectPage.decisions.route}</p>
+        <h2 className={styles.sectionTitle}>{ui.projectPage.decisions.title}</h2>
         <dl className={styles.decisions}>
           {project.keyDecisions.map((d) => (
             <div key={d.decision} className={styles.decision}>
@@ -107,21 +102,21 @@ export default async function ProjectPage({ params }: Props) {
       </Reveal>
 
       <Reveal as="section" className={styles.section}>
-        <p className="route">/result</p>
-        <h2 className={styles.sectionTitle}>Final result</h2>
+        <p className="route">{ui.projectPage.result.route}</p>
+        <h2 className={styles.sectionTitle}>{ui.projectPage.result.title}</h2>
         <p className={styles.result}>{project.result}</p>
       </Reveal>
 
       <Reveal as="section" className={styles.section}>
-        <p className="route">/learned</p>
-        <h2 className={styles.sectionTitle}>What I learned</h2>
+        <p className="route">{ui.projectPage.learned.route}</p>
+        <h2 className={styles.sectionTitle}>{ui.projectPage.learned.title}</h2>
         <p>{project.learned}</p>
       </Reveal>
 
       <nav className={styles.footNav} aria-label="Case study navigation">
-        <Link href="/#work">← Back to all work</Link>
+        <Link href="/#work">{ui.projectPage.backLink}</Link>
         <a href={`mailto:${site.email}?subject=${encodeURIComponent(`Re: ${project.title}`)}`}>
-          Ask me about this project
+          {ui.projectPage.askLink}
         </a>
       </nav>
     </article>

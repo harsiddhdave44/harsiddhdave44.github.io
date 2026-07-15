@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
+import { ui } from "@/content/ui";
 import styles from "./ProjectCard.module.css";
 
 /**
@@ -16,7 +17,7 @@ export function ProjectCard({ project }: { project: Project }) {
           className={styles.state}
           data-status={project.status}
         >
-          {project.status === "resolved" ? "resolved" : "in progress"}
+          {project.status === "resolved" ? ui.projectCard.resolvedLabel : ui.projectCard.inProgressLabel}
         </span>
       </div>
       <h3 className={styles.title}>
@@ -27,11 +28,11 @@ export function ProjectCard({ project }: { project: Project }) {
       <p className={styles.summary}>{project.summary}</p>
       {outcome && (
         <p className={styles.outcome}>
-          <span className={styles.outcomeLabel}>outcome:</span> {outcome.value}
+          <span className={styles.outcomeLabel}>{ui.projectCard.outcomeLabel}</span> {outcome.value}
         </p>
       )}
       <span className={styles.readCue} aria-hidden="true">
-        Read the runbook →
+        {ui.projectCard.readCue}
       </span>
     </article>
   );

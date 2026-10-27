@@ -11,6 +11,8 @@ export const ui = {
     items: [
       { href: "/#about", label: "/about" },
       { href: "/#work", label: "/work" },
+      { href: "/#experience", label: "/experience" },
+      { href: "/#education", label: "/education" },
       { href: "/#contact", label: "/contact" },
     ],
   },
@@ -24,6 +26,8 @@ export const ui = {
       "Case studies are being written up. Email me and I'll walk you through the work directly.",
     workIntro:
       "I document projects the way I'd document production systems: what broke or needed to change, what I decided and why, and what the system looked like afterwards.",
+    experienceTitle: "Experience",
+    educationTitle: "Education",
     capabilitiesTitle: "What I operate",
   },
   projectCard: {

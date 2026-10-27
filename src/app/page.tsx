@@ -74,6 +74,59 @@ export default function HomePage() {
         )}
       </Section>
 
+      {/* ── Experience ────────────────────────────────────────── */}
+      <Section
+        id="experience"
+        route="/experience"
+        title={ui.home.experienceTitle}
+      >
+        <ol className={styles.experienceList}>
+          {site.experience.map((job, i) => (
+            <Reveal
+              as="li"
+              key={job.company}
+              delay={i * 80}
+              className={styles.experienceItem}
+            >
+              <article>
+                <div className={styles.experienceHeader}>
+                  <div>
+                    <h3 className={styles.experienceRole}>{job.role}</h3>
+                    <p className={styles.experienceCompany}>
+                      {job.company} · {job.location}
+                    </p>
+                  </div>
+                  <p className={styles.experienceDates}>{job.dates}</p>
+                </div>
+                <ul className={styles.experienceHighlights}>
+                  {job.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </ol>
+      </Section>
+
+      {/* ── Education ─────────────────────────────────────────── */}
+      <Section
+        id="education"
+        route="/education"
+        title={ui.home.educationTitle}
+      >
+        <dl className={styles.educationList}>
+          {site.education.map((item) => (
+            <div key={item.institution} className={styles.educationItem}>
+              <dt className={styles.educationDegree}>{item.degree}</dt>
+              <dd className={styles.educationMeta}>
+                {item.institution} · {item.location} · {item.dates}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
       {/* ── Capabilities ─────────────────────────────────────── */}
       <Section
         id="capabilities"

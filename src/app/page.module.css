@@ -263,3 +263,66 @@
   font-family: var(--font-mono);
   font-size: var(--text-sm);
 }
+
+
+/* ── Experience & education ─────────────────────────────────── */
+.experienceList {
+  display: grid;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experienceItem {
+  border-top: 1px solid var(--line);
+  padding-block: 1.5rem;
+}
+
+.experienceList > :last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.experienceHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.experienceRole,
+.educationDegree {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.experienceCompany,
+.experienceDates,
+.educationMeta {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.experienceHighlights {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  max-width: 82ch;
+  font-size: var(--text-sm);
+}
+
+.educationList {
+  border-top: 1px solid var(--line);
+}
+
+.educationItem {
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.educationItem dd {
+  margin-left: 0;
+}

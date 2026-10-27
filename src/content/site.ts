@@ -6,7 +6,7 @@
 export const site = {
   name: "Harsiddh Dave",
   shortName: "Harsiddh",
-  role: "Platform Engineer",
+  role: "Senior DevOps / Platform Engineer",
   // The one-line pitch used in the hero and metadata.
   tagline:
     "I build and operate production-grade cloud infrastructure. I care about what happens at runtime, not just what's in the config.",
@@ -19,7 +19,10 @@ export const site = {
     available: true,
   },
   // Add profile links here as { label, href }. They render in the nav footer and contact.
-  links: [] as { label: string; href: string }[],
+  links: [
+    { label: "GitHub", href: "https://github.com/harsiddhdave44" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/harsiddhdave44" },
+  ] as { label: string; href: string }[],
   hero: {
     // Mono metadata strip under the hero headline.
     meta: [
@@ -38,6 +41,51 @@ export const site = {
     direction:
       "Where I'm heading: platform engineering, systems architecture, distributed systems, and AI-native infrastructure, including AI agents for enterprise workflows like HR role intake, JD generation, resume parsing, and candidate comparison. The goal is practical platforms that combine cloud infrastructure, backend systems, LLMs, secure data handling, and compliance awareness so teams spend less time on low-value manual work.",
   },
+  experience: [
+    {
+      company: "Sunflower Lab",
+      role: "Senior DevOps / Platform Engineer",
+      dates: "Sep 2023 – Present",
+      location: "Remote",
+      highlights: [
+        "Design and operate AWS multi-account, multi-VPC architectures with Client VPN, IPsec tunnels, private hosted zones, and controlled routing.",
+        "Build CI/CD workflows across Jenkins, GitLab CI, and GitHub Actions for build automation, deployment promotion, and release support.",
+        "Operate production EKS and ECS workloads and author reusable Terraform modules for VPC, EKS, ALB, IAM, RDS, and autoscaling.",
+        "Troubleshoot production incidents across networking, VPN, deployments, RDS connectivity, and Kubernetes, turning recurring issues into preventive automation.",
+      ],
+    },
+    {
+      company: "InterviewReady",
+      role: "DevOps Engineer",
+      dates: "Oct 2022 – Jul 2023",
+      location: "Remote",
+      highlights: [
+        "Reduced AWS costs by 60% through compute right-sizing, CI runner optimization, and Terraform-driven resource cleanup.",
+        "Built GitHub Actions and Jenkins pipelines for container builds, ECR publishing, and automated deployments across environments.",
+        "Executed zero-downtime cross-region PostgreSQL RDS migrations using read replicas and controlled cutovers.",
+        "Automated operations and backup workflows in Python with boto3 and psycopg2.",
+      ],
+    },
+    {
+      company: "RKIT Software Pvt Ltd",
+      role: "Cloud Engineer",
+      dates: "Jan 2020 – Sep 2022",
+      location: "Remote",
+      highlights: [
+        "Operated Azure VMs, Load Balancer, CDN, and MySQL-based SaaS platforms serving production workloads.",
+        "Deployed .NET Core microservices on AWS EKS with autoscaling and persistent volumes.",
+        "Introduced Python QA automation with PyTest to support coding standards and quality checks.",
+      ],
+    },
+  ],
+  education: [
+    {
+      institution: "Gujarat Technological University",
+      degree: "Bachelor of Engineering in Computer Science",
+      dates: "2017 – 2020",
+      location: "India",
+    },
+  ],
   capabilities: [
     {
       area: "Cloud & compute",

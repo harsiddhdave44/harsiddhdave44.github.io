@@ -27,17 +27,17 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "aws-cost-reduction",
-    title: "Cutting AWS spend from ~$900 to ~$300 a month",
+    title: "Reducing AWS costs by 60% while preserving production reliability",
     summary:
-      "A sustained cost-optimization effort across a production AWS environment that cut the monthly bill by roughly two-thirds without weakening reliability.",
+      "A production AWS cost-optimization effort that reduced spend by 60% through compute right-sizing, CI runner optimization, and Terraform-driven resource cleanup.",
     status: "resolved",
     meta: [
       { label: "system", value: "Production AWS environment" },
       { label: "surface", value: "Compute, storage, networking, databases" },
-      { label: "outcome", value: "~$900/mo → ~$300/mo" },
+      { label: "outcome", value: "60% lower AWS cost" },
     ],
     problem:
-      "The AWS environment had grown organically, and the monthly bill had grown with it, reaching roughly $900 a month. Cost had never been treated as a first-class engineering signal, so nobody could say precisely which workloads were earning their spend and which were waste.",
+      "The AWS environment had accumulated cost across compute, CI runners, and infrastructure resources. The work focused on identifying savings that could be made safely through right-sizing and cleanup, with cost treated as an operational signal alongside reliability.",
     targetUser:
       "The business paying the bill, and the engineering team who needed the savings to come without new operational risk or degraded reliability.",
     role:
@@ -63,7 +63,7 @@ export const projects: Project[] = [
       },
     ],
     result:
-      "Monthly AWS cost dropped from approximately $900 to approximately $300, a reduction of roughly two-thirds, while the environment kept serving production traffic.",
+      "AWS costs were reduced by approximately 60% through compute right-sizing, CI runner optimization, and Terraform-driven resource cleanup.",
     learned:
       "Cost is an observability problem before it's a finance problem. Once you can see what the system actually does at runtime, most of the savings are obvious. The discipline of verifying each change incrementally is what makes them safe.",
   },
